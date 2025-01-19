@@ -1,8 +1,10 @@
-import re
-import os
 import glob
+import os
+import re
+
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill
+
 
 # Function to convert the leetcode naming format
 def convert_to_title_format(name):
@@ -120,7 +122,7 @@ if match:
             # Write data to the new row
             sheet[f'A{category_row + 1}'] = category
             sheet[f'B{category_row + 1}'] = problem_name
-            level = prompt('Please input a problem level: ')
+            level = prompt('Please input a problem level (e/m/h): ')
             if level == 'e':
                 sheet[f'B{category_row + 1}'].fill = fill_easy
             if level == 'm':
@@ -138,7 +140,7 @@ if match:
             # Write data to the next available row
             sheet[f'A{next_row}'] = category
             sheet[f'B{next_row}'] = problem_name
-            level = prompt('Please input a problem level: ')
+            level = prompt('Please input a problem level: (e/m/h): ')
             if level == 'e':
                 sheet[f'B{next_row}'].fill = fill_easy
             if level == 'm':
